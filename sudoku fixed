@@ -1,0 +1,32 @@
+from PyQt5.QtWidgets import *
+import sys
+import random
+from PyQt5.QtCore import *
+
+
+
+
+class basicWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+        Outhboxlayout = QHBoxLayout()
+        hboxlayout = QHBoxLayout()
+        vboxlayout = QVBoxLayout()
+        Btn2 = QComboBox()
+        Btn3 = QPushButton("제출")
+        self.label1 = QLabel("난이도:")
+        self.label = QLabel("타이머")
+        hboxlayout.addWidget(self.label1)
+        hboxlayout.addWidget(Btn2)
+        hboxlayout.addWidget(Btn3)
+        hboxlayout.addWidget(self.label)
+        vboxlayout.addLayout(hboxlayout)
+        grid_layout = QGridLayout()
+        vboxlayout.addLayout(grid_layout)
+        Outhboxlayout.addLayout(vboxlayout)
+        Outhboxlayout.addLayout(grid_layout)
+
+        Btn2.addItem('쉬움')
+        Btn2.addItem('보통')
+        Btn2.addItem('어려움')
+        self.setLayout(Outhboxlayout)
