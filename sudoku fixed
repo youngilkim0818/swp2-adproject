@@ -30,3 +30,28 @@ class basicWindow(QWidget):
         Btn2.addItem('보통')
         Btn2.addItem('어려움')
         self.setLayout(Outhboxlayout)
+
+        for x in range(9):
+            for y in range(9):
+                button = QPushButton(str(str(random.randint(1,9))))
+                button.setMaximumWidth(40)
+                grid_layout.addWidget(button, x, y)
+                button.clicked.connect(self.button_clicked)
+
+        self.setWindowTitle('sudoku')
+
+    def button_clicked(self):
+        button = self.sender()
+        text, ok = QInputDialog.getInt(self, '값', '값을 입력하세요')
+        if ok:
+            button.setText(str(text))
+
+
+
+
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    windowExample = basicWindow()
+    windowExample.show()
+    sys.exit(app.exec_())
